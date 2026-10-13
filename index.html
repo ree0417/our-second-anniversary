@@ -524,6 +524,18 @@
 
     
         /* Local music player: place the MP3 inside the song folder */
+        /* Keep the background song playing without showing an audio control on the page. */
+        .audio-player-wrap {
+            position: fixed;
+            width: 1px;
+            height: 1px;
+            left: -10000px;
+            bottom: 0;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+
         .audio-player-wrap {
             width: min(560px, calc(100% - 32px));
             margin: 18px auto 28px;
@@ -585,6 +597,34 @@
                 document.addEventListener("touchstart", resumeSong, { once: true });
             });
             startSong();
+        });
+    </script>
+
+    <script>
+        // Keep the background song running when either memory video is played.
+        window.addEventListener("DOMContentLoaded", function () {
+            const song = document.getElementById("perfectSongPlayer");
+            if (!song) return;
+
+            document.querySelectorAll(".video-card video").forEach(function (video) {
+                video.addEventListener("play", function () {
+                    if (song.paused) {
+                        song.play().catch(function () {
+                            // Some browsers require a user interaction before audio can play.
+                        });
+                    }
+                });
+            });
+
+            // Retry starting the song after the visitor interacts with the page.
+            const resumeSong = function () {
+                if (song.paused) {
+                    song.play().catch(function () {});
+                }
+            };
+            document.addEventListener("pointerdown", resumeSong);
+            document.addEventListener("keydown", resumeSong);
+            document.addEventListener("touchstart", resumeSong);
         });
     </script>
 
