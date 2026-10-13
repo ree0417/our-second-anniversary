@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Years of Us ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #260f1d;
+            color: #fff4f7;
+            line-height: 1.8;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #351526;
+        }
+
+        nav h3 {
+            color: #ffb6cc;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffb6cc;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                radial-gradient(circle at top, #71304c, transparent 60%),
+                linear-gradient(135deg, #260f1d, #481c32);
+        }
+
+        .hero .date {
+            color: #ffb6cc;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 95px);
+            line-height: 1.1;
+            margin: 25px 0;
+        }
+
+        .hero h1 span {
+            color: #ffb6cc;
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 18px;
+            color: #f4dce5;
+        }
+
+        .heart {
+            font-size: 42px;
+            color: #ff9fbd;
+            margin-top: 25px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.18); }
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 12px 28px;
+            border: 1px solid #ffb6cc;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #d96d91;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #ffb6cc;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: Arial, sans-serif;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            font-weight: normal;
+            margin: 10px 0;
+        }
+
+        .section-title p {
+            color: #dfbdcb;
+        }
+
+        .story {
+            background: #301323;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 182, 204, 0.25);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-card small {
+            color: #ffb6cc;
+            font-family: Arial, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .story-card h3 {
+            font-size: 27px;
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        .story-card p {
+            color: #f0dbe3;
+        }
+
+        .letter-section {
+            background: linear-gradient(135deg, #421b30, #260f1d);
+        }
+
+        .letter {
+            max-width: 850px;
+            margin: auto;
+            padding: 40px;
+            border: 1px solid rgba(255, 182, 204, 0.35);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .letter p {
+            margin-bottom: 20px;
+            color: #f5e5eb;
+        }
+
+        .letter h3 {
+            font-size: 30px;
+            color: #ffb6cc;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            color: #ffb6cc;
+            font-size: 25px;
+            font-style: italic;
+        }
+
+        .gallery {
+            background: #301323;
+        }
+
+        .gallery-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .photo {
+            min-height: 230px;
+            border: 1px dashed #d98aa6;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo label {
+            cursor: pointer;
+            color: #f5c9d8;
+            padding: 20px;
+            z-index: 1;
+            font-family: Arial, sans-serif;
+        }
+
+        .photo input {
+            display: none;
+        }
+
+        .promise {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .promise blockquote {
+            font-size: clamp(25px, 4vw, 42px);
+            line-height: 1.5;
+            margin: 25px 0;
+        }
+
+        .promise blockquote span {
+            color: #ffb6cc;
+            font-style: italic;
+        }
+
+        .promise p {
+            color: #e8cbd6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #1c0a14;
+            color: #d6a9bb;
+        }
+
+        footer span {
+            color: #ffb6cc;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 6px;
+                font-size: 12px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .photo {
+                min-height: 180px;
+            }
+
+            .letter {
+                padding: 25px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-frame {
+    position: relative;
+    overflow: hidden;
+    background: #140810;
+}
+
+.video-frame label {
+    cursor: pointer;
+    z-index: 2;
+}
+
+.video-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 182, 204, 0.35);
+    border-radius: 15px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.video-card video {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    background: #140810;
+}
+
+.video-card p {
+    color: #ffb6cc;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.photo {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .video-card {
+        grid-column: 1 / -1;
+    }
+}
+
+        /* Overall layout refinements */
+        body {
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            gap: 18px;
+            flex-wrap: wrap;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        nav div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+        }
+
+        nav a {
+            margin-left: 0;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 86vh;
+        }
+
+        .hero p {
+            margin: 0 auto;
+        }
+
+        section {
+            scroll-margin-top: 85px;
+        }
+
+        .gallery-grid {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .photo,
+        .video-card {
+            width: 100%;
+            min-width: 0;
+            min-height: 280px;
+            border: 1px solid rgba(255, 182, 204, 0.35);
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        .photo {
+            position: relative;
+            display: block;
+        }
+
+        .photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            display: block;
+            object-fit: cover;
+        }
+
+        .video-card {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-card video {
+            width: 100%;
+            max-height: 340px;
+            display: block;
+            border-radius: 10px;
+            background: #140810;
+        }
+
+        .video-card p {
+            color: #ffb6cc;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        .story-card,
+        .letter {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .letter {
+            line-height: 1.9;
+        }
+
+        footer {
+            line-height: 1.9;
+        }
+
+        @media (max-width: 800px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .photo,
+            .video-card {
+                min-height: 220px;
+            }
+
+            nav {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav div {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo,
+            .video-card {
+                min-height: 260px;
+            }
+
+            .hero .date {
+                letter-spacing: 1.5px;
+                line-height: 1.8;
+            }
+
+            .letter {
+                padding: 22px;
+            }
+
+            .story-card {
+                padding: 22px;
+            }
+        }
+
+    
+        /* Local music player: place the MP3 inside the song folder */
+        .audio-player-wrap {
+            width: min(560px, calc(100% - 32px));
+            margin: 18px auto 28px;
+            padding: 14px;
+            border: 1px solid rgba(255, 182, 204, 0.45);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .audio-player-wrap p {
+            color: #ffb6cc;
+            text-align: center;
+            margin: 0 0 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .local-song-player {
+            display: block;
+            width: 100%;
+            height: 46px;
+        }
+
+        @media (max-width: 480px) {
+            .audio-player-wrap {
+                width: calc(100% - 24px);
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Local copy of “Perfect” by Ed Sheeran. Keep the MP3 in the song folder. -->
+    <div class="audio-player-wrap" aria-hidden="true">
+        <audio class="local-song-player" id="perfectSongPlayer" autoplay loop preload="auto">
+            <source src="song/Edd_Sheeran_-_Perfect_(mp3.pm).mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script>
+        // Try to start the anniversary song as soon as the page opens.
+        // Some browsers block autoplay with sound until the visitor interacts once.
+        window.addEventListener("DOMContentLoaded", function () {
+            const song = document.getElementById("perfectSongPlayer");
+            if (!song) return;
+            song.volume = 0.7;
+            const startSong = () => song.play().catch(() => {
+                const resumeSong = () => {
+                    song.play().catch(() => {});
+                    document.removeEventListener("pointerdown", resumeSong);
+                    document.removeEventListener("keydown", resumeSong);
+                    document.removeEventListener("touchstart", resumeSong);
+                };
+                document.addEventListener("pointerdown", resumeSong, { once: true });
+                document.addEventListener("keydown", resumeSong, { once: true });
+                document.addEventListener("touchstart", resumeSong, { once: true });
+            });
+            startSong();
+        });
+    </script>
+
+    <nav>
+        <h3>R + Z ♡</h3>
+        <div>
+            <a href="#story">Our Story</a>
+            <a href="#letter">My Letter</a>
+            <a href="#memories">Memories</a>
+            <a href="#promise">Our Future</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="date">
+            13 OCTOBER 2024 — 13 OCTOBER 2026
+        </div>
+
+        <h1>Two Years.<br><span>One Us.</span></h1>
+
+        <p>
+            From a quiet first meeting after our last first-semester paper
+            to two beautiful years of choosing each other.
+            And if God allows, this is only the beginning.
+        </p>
+
+        <div class="heart">♡</div>
+
+        <a href="#story" class="button">
+            Discover Our Story ❤️
+        </a>
+    </header>
+
+    <!-- OUR STORY -->
+    <section class="story" id="story">
+
+        <div class="section-title">
+            <small>Where it all began</small>
+            <h2>Our Love Story</h2>
+            <p>Every beautiful love story has a beginning. This is ours.</p>
+        </div>
+
+        <div class="timeline">
+
+            <article class="story-card">
+                <small>25 JUNE 2024 · OUR FIRST MEETING</small>
+                <h3>The Girl I Noticed From A Distance</h3>
+
+                <p>
+                    We were both first-year varsity students, coming from
+                    writing our last paper for the first semester.
+
+                    You were a quiet, humble girl who hardly socialised.
+                    You didn't have friends around you, and you weren't
+                    the easiest person to approach. But somehow, from
+                    a distance, I could already see your humbleness.
+
+                    There was something special about you that made me
+                    want to know you better.
+                </p>
+            </article>
+
+            <article class="story-card">
+                <small>THE DAY I ASKED FOR YOUR NUMBER</small>
+                <h3>"Go Get It From The Class Group"</h3>
+
+                <p>
+                    I finally gathered the courage to ask for your number.
+                    Instead of giving it to me, you told me to get it
+                    from our class group chat.
+
+                    But I wanted you to type it yourself on my phone.
+                    And you did.
+
+                    Looking back, that little moment means so much
+                    because it became the beginning of our story.
+                    We started talking, and slowly, I got to know
+                    the beautiful person behind that quiet smile.
+                </p>
+            </article>
+
+            <article class="story-card">
+                <small>PATIENCE AND UNDERSTANDING</small>
+                <h3>I Was Willing To Wait</h3>
+
+                <p>
+                    When we started talking, you told me that you
+                    weren't ready to be in a relationship.
+
+                    I told you that I wasn't in a rush and that you
+                    could take your time.
+
+                    I didn't want to force anything. I wanted you
+                    to feel comfortable, to know me properly, and
+                    to make your own decision when you were ready.
+
+                    You were worth the wait.
+                </p>
+            </article>
+
+            <article class="story-card">
+                <small>13 OCTOBER 2024 at 20:06 · OUR ANNIVERSARY</small>
+                <h3>The Day You Became Mine</h3>
+
+                <p>
+                    Then came 13 October 2024 at 20:06, the day our story
+                    officially became ours.
+
+                    Today, two years later, I look back with gratitude.
+                    The girl I once noticed from a distance has become
+                    someone deeply important in my life.
+
+                    Thank you for loving me and for making me feel
+                    like those loved guys I used to see.
+                    With you, I get to experience that love too.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- LOVE LETTER -->
+    <section class="letter-section" id="letter">
+
+        <div class="section-title">
+            <small>A message from my heart</small>
+            <h2>To My Beautiful Girl ❤️</h2>
+            <p>Some things deserve to be written down forever.</p>
+        </div>
+
+        <div class="letter">
+
+            <h3>My Love,</h3>
+
+            <p>
+                Happy two years to us, my love. ❤️
+            </p>
+
+            <p>
+                Sometimes I think about how we first met on
+                25 June 2024. We were just two first-year students
+                coming from our last paper for the semester, and
+                I had no idea that the quiet, humble girl I noticed
+                from a distance would one day become someone this
+                important to me.
+            </p>
+
+            <p>
+                I still smile when I remember asking for your number
+                and you telling me to get it from the class group chat.
+                I insisted that you type it on my phone yourself,
+                and you did. From that little moment, we started
+                talking and slowly building something real.
+            </p>
+
+            <p>
+                When you told me you weren't ready for a relationship,
+                I didn't want to rush you. I wanted you to have the
+                time and freedom to choose me when you were ready.
+                On 13 October 2024, you became mine, and today
+                I am grateful that we are celebrating two years together.
+            </p>
+
+            <p>
+                You make me feel loved. You remind me that I, too,
+                can experience the kind of love I used to see other
+                people enjoying. I appreciate your heart, your humility,
+                your quiet nature, and all the little ways you make
+                my life feel warmer.
+            </p>
+
+            <p>
+                My intention is to keep choosing you and to keep you
+                in my life for as long as God allows. I want us to
+                grow together, support each other, celebrate our
+                achievements, and face life's difficult moments
+                as a team.
+            </p>
+
+            <p>
+                I look forward to our graduation day. One of my hopes
+                is to officially introduce you to my family because
+                you have become so meaningful to me. You have shown
+                me qualities that make me want to keep building
+                something beautiful with you.
+            </p>
+
+            <p>
+                I cannot promise that every day will be perfect,
+                but I can promise to keep learning, listening,
+                growing, praying, and showing up with love.
+                May God guide us, protect what we are building,
+                and give us the wisdom to love each other well.
+            </p>
+
+            <p>
+                Thank you for choosing us. Thank you for being
+                yourself. Thank you for these two years of memories,
+                laughter, love, and growth.
+            </p>
+
+            <p>
+                If I could go back to that day after our last paper,
+                I would still want to meet you. I would still want
+                to ask for your number. I would still want to get
+                to know you.
+            </p>
+
+            <p>
+                And if God gives us the opportunity, I would love
+                to keep choosing you through all the chapters
+                that are still waiting for us.
+            </p>
+
+            <p>
+                Happy second anniversary, my favourite person.
+                This is two years of us, but my heart hopes
+                for many more.
+            </p>
+
+            <p class="signature">
+                Yours, today and for the days God gives us. ♡
+            </p>
+
+        </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="gallery" id="memories">
+
+        <div class="section-title">
+            <small>Our favourite moments</small>
+            <h2>Our Memory Corner 📸</h2>
+            <p>
+                Add your favourite pictures together and make
+                this page even more personal.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+
+    <!-- PHOTO 1 -->
+    <div class="photo">
+        <img src="image/WhatsApp Image 2026-10-13 at 04.25.48.jpeg"
+             alt="Our favourite memory">
+    </div>
+
+    <!-- VIDEO 1 -->
+    <div class="video-card">
+        <video controls playsinline preload="metadata">
+            <source src="video/WhatsApp Video 2026-10-13 at 04.27.04 - Trim.mp4" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+        <p>Our Beautiful Memories ❤️</p>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="photo">
+        <img src="image/WhatsApp Image 2026-10-13 at 04.25.49.jpeg" alt="My favourite picture of you">
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="photo">
+        <img src="image/WhatsApp Image 2026-10-13 at 04.25.49 (2).jpeg" alt="Our special day">
+    </div>
+
+    <!-- VIDEO 2 -->
+    <div class="video-card">
+        <video controls playsinline preload="metadata">
+            <source src="video/WhatsApp Video 2026-10-13 at 04.26.37 - Trim.mp4" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+        <p>Two Years of Love 💕</p>
+    </div>
+
+    <!-- PHOTO 4 -->
+    <div class="photo">
+        <img src="image/WhatsApp Image 2026-10-13 at 04.25.49 (1).jpeg" alt="Two years of us">
+    </div>
+
+</div>
+
+
+    </section>
+
+    <!-- PROMISE -->
+    <section id="promise">
+
+        <div class="promise">
+
+            <div class="section-title">
+                <small>My hope for us</small>
+                <h2>Not Just Two Years</h2>
+            </div>
+
+            <blockquote>
+                "I don't just want to celebrate the love we've had.
+                I want to keep <span>choosing you</span> in all the
+                chapters still to come."
+            </blockquote>
+
+            <p>
+                My hope is to walk beside you through graduation
+                and whatever comes after, celebrate your wins,
+                support you through hard days, and build a love
+                that honours God.
+
+                One day at a time, one prayer at a time,
+                and one choice at a time.
+            </p>
+
+            <div class="heart">♡</div>
+
+            <p style="margin-top: 25px; color: #ffb6cc;">
+                We met: 25 June 2024<br>
+                We began: 13 October 2024<br>
+                We celebrate: 13 October 2026
+            </p>
+
+        </div>
+    </section>
+
+    <footer>
+        Made with love, for my favourite person. <span>♡</span>
+        <br>
+        13 October 2026 · Two Years of Us. Designed and built with care by R Ntsanwisi.
+    </footer>
+
+    <script>
+        function addPhoto(input) {
+            const file = input.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            if (!file.type.startsWith("image/")) {
+                alert("Please select an image.");
+                return;
+            }
+
+            const photoBox = input.closest(".photo");
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                let image = photoBox.querySelector("img");
+
+                if (!image) {
+                    image = document.createElement("img");
+                    photoBox.appendChild(image);
+                }
+
+                image.src = event.target.result;
+                image.alt = "Our anniversary memory";
+
+                const label = photoBox.querySelector("label");
+
+                if (label) {
+                    label.style.display = "none";
+                }
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function addVideo(input) {
+    const file = input.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    if (!file.type.startsWith("video/")) {
+        alert("Please select a video file.");
+        return;
+    }
+
+    const videoBox = input.closest(".photo");
+    const videoURL = URL.createObjectURL(file);
+
+    // Remove the upload label
+    const label = videoBox.querySelector("label");
+
+    if (label) {
+        label.remove();
+    }
+
+    // Create the video player
+    const video = document.createElement("video");
+
+    video.src = videoURL;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.position = "absolute";
+    video.style.inset = "0";
+    video.style.objectFit = "contain";
+    video.style.background = "#140810";
+
+    videoBox.appendChild(video);
+}
+    </script>
+
+</body>
+</html>
